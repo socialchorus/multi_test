@@ -1,0 +1,16 @@
+#!/bin/bash
+gemfiles=$(ls ./gemfiles/**/Gemfile)
+echo $gemfiles
+for gemfile in $gemfiles
+do
+  echo
+  echo "Testing with $gemfile..."
+  export BUNDLE_GEMFILE=$gemfile
+  bundle install
+  ./test/run
+  if [ $? -ne 0 ]
+  then
+    exit 1
+  fi
+done
+
