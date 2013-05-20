@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-result="$(bundle exec ruby test/example.rb)"
+result="$(bundle exec ruby ./test/example.rb)"
 status=$?
 if [[ $result != "" ]]; then
   echo 
