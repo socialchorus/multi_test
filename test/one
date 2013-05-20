@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+result="$(bundle exec ruby test/test.rb)"
+status=$?
+if [[ $result != "" ]]; then
+  echo 
+  echo "FAIL: Expected empty output but was:"
+  echo "--$result--"
+  exit 1
+fi
+if [[ $status -ne 0 ]]; then
+  echo 
+  echo "FAIL: Expected zero exit status"
+  exit 1
+fi
+echo "PASS"
