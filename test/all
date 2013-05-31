@@ -1,13 +1,14 @@
 #!/bin/bash
-gemfiles=$(ls ./gemfiles/**/Gemfile)
-echo $gemfiles
-for gemfile in $gemfiles
+gemfile_dirs=$(ls -d -- gemfiles/*)
+echo $gemfile_dirs
+for gemfile_dir in $gemfile_dirs
 do
+  gemfile="$gemfile_dir/Gemfile"
   echo
   echo "Testing with $gemfile..."
   export BUNDLE_GEMFILE=$gemfile
   bundle install
-  ./test/run
+  ./test/run $gemfile_dir
   if [ $? -ne 0 ]
   then
     exit 1
