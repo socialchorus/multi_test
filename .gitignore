@@ -1,2 +1,3 @@
 gemfiles/**/*.lock
 gemfiles/**/vendor
+pkg/*.*

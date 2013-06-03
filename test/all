@@ -6,7 +6,7 @@ for gemfile_dir in $gemfile_dirs
 do
   if [ -a $gemfile_dir/scenarios ]
   then
-    scenarios=$($gemfile_dir/scenarios)
+    scenarios=$(cat $gemfile_dir/scenarios)
   else
     scenarios=$(ls test/*.rb)
   fi
