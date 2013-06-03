@@ -1,17 +1,30 @@
 #!/bin/bash
+exit_status=0
 gemfile_dirs=$(ls -d -- gemfiles/*)
 echo $gemfile_dirs
 for gemfile_dir in $gemfile_dirs
 do
-  gemfile="$gemfile_dir/Gemfile"
-  echo
-  echo "Testing with $gemfile..."
-  export BUNDLE_GEMFILE=$gemfile
-  bundle install
-  ./test/run $gemfile_dir
-  if [ $? -ne 0 ]
+  if [ -a $gemfile_dir/scenarios ]
   then
-    exit 1
+    scenarios=$($gemfile_dir/scenarios)
+  else
+    scenarios=$(ls test/*.rb)
   fi
+  echo $scenarios
+  for scenario in $scenarios
+  do
+    gemfile="$gemfile_dir/Gemfile"
+    echo
+    echo "Testing scenario $scenario with $gemfile..."
+    export BUNDLE_GEMFILE=$gemfile
+    bundle install
+    ./test/run $gemfile_dir $scenario
+    if [ $? -ne 0 ]
+    then
+      exit_status=1
+    fi
+  done
 done
+
+exit $exit_status
 
