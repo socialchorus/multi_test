@@ -1,3 +1,5 @@
 gemfiles/**/*.lock
 gemfiles/**/vendor
 pkg/*.*
+*.swo
+*.swn
