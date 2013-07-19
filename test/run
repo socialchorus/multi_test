@@ -1,5 +1,15 @@
 #!/bin/bash
-result="$(bundle exec ruby -I$1 $2)"
+
+gemfile_dir=$1
+scenario=$2
+gemfile="$gemfile_dir/Gemfile"
+
+echo
+echo "Testing scenario $scenario with $gemfile..."
+export BUNDLE_GEMFILE=$gemfile
+bundle install
+result="$(bundle exec ruby -I lib $scenario)"
+
 status=$?
 if [[ $result != "" ]]; then
   echo 

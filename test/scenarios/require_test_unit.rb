@@ -1,7 +1,7 @@
 # Imagine this is your rails app
-Bundler.require
+require 'test/unit'
 
 # Now cucumber loads
-require_relative "../lib/multi_test"
+require "multi_test"
 MultiTest.disable_autorun
 
