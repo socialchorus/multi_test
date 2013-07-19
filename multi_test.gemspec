@@ -4,9 +4,9 @@ require "cucumber/platform"
 
 Gem::Specification.new do |s|
   s.name        = 'multi_test'
-  s.version     = '0.0.1'
+  s.version     = '0.0.2'
   s.authors     = ["Matt Wynne", "Steve Tooke"]
-  s.description = 'Wafter-thin gem to help us control rogue test/unit requires'
+  s.description = 'Wafter-thin gem to help control rogue test/unit/autorun requires'
   s.summary     = "multi-test-#{s.version}"
   s.email       = 'cukes@googlegroups.com'
   s.homepage    = "http://cukes.info"
