@@ -9,6 +9,7 @@ Gem::Specification.new do |s|
   s.description = 'Wafter-thin gem to help control rogue test/unit/autorun requires'
   s.summary     = "multi-test-#{s.version}"
   s.email       = 'cukes@googlegroups.com'
+  s.license     = 'MIT'
   s.homepage    = "http://cukes.info"
 
   s.platform    = Gem::Platform::RUBY
