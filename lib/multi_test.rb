@@ -1,3 +1,4 @@
+require 'minitest/unit' # because for cucucmber and rails 4 is currently a big fail
 module MultiTest
   def self.disable_autorun
     if defined?(Test::Unit::Runner)
